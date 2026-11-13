@@ -1,0 +1,3 @@
+import React from 'react';
+import {useEffect,useState}from"react";import{Link,useParams}from"react-router-dom";import api from"../api/axios.js";import PostCard from"../components/PostCard.jsx";
+export default function Profile(){const{id}=useParams();const[data,setData]=useState(null);useEffect(()=>{api.get(`/users/${id}`).then(r=>setData(r.data))},[id]);if(!data)return <div className="center">Loading...</div>;return <main className="container profile"><div className="profile-head"><div className="avatar">{data.user.name[0]}</div><h1>{data.user.name}</h1><p>{data.user.bio||"Developer and writer."}</p></div><h2>Published posts</h2><div className="grid">{data.posts.map(p=><PostCard key={p._id} post={p}/>)}</div></main>}

@@ -1,0 +1,3 @@
+import React from 'react';
+import {useEffect,useState} from "react";import {useParams} from "react-router-dom";import api from "../api/axios.js";import PostCard from "../components/PostCard.jsx";
+export default function TagPage(){const{slug}=useParams();const[posts,setPosts]=useState([]);useEffect(()=>{api.get("/posts",{params:{tag:slug}}).then(r=>setPosts(r.data))},[slug]);return <main className="container"><span className="eyebrow">TAG</span><h1>#{slug}</h1><div className="grid">{posts.map(p=><PostCard key={p._id} post={p}/>)}</div></main>}
