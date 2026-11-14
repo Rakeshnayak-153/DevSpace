@@ -15,7 +15,9 @@ const userSchema = new mongoose.Schema(
     bio: { type: String, maxlength: 200, default: "" },
     avatarUrl: { type: String, default: "" },
 
-    // Posts bookmarked by this user
+    resetPasswordToken: { type: String, default: null },
+    resetPasswordExpires: { type: Date, default: null },
+
     bookmarks: [
       {
         type: mongoose.Schema.Types.ObjectId,

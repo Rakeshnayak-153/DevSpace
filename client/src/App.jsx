@@ -8,6 +8,8 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Feed from "./pages/Feed.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
+import ResetPassword from "./pages/ResetPassword.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import PostEditor from "./pages/PostEditor.jsx";
@@ -24,8 +26,19 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Feed />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Password recovery */}
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
+        />
 
         <Route path="/post/:slug" element={<PostDetail />} />
 
