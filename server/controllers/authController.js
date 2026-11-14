@@ -47,6 +47,7 @@ export async function register(req, res) {
       },
     });
   } catch (error) {
+    console.error("Registration error:", error);
     res.status(500).json({ message: "Registration failed" });
   }
 }
